@@ -6,6 +6,7 @@ public class Screen
 		System.out.print("Test/Hello World! Dicks\n Pishki\n");
 		System.out.print("Test/Hello World! Dicks\nSreden prust WE\n");
 		System.out.print("Test/Hello World! Dicks\nSreden prust WE\n/QJ MI KURA ANDREW");
+		System.out.print("Test/Hello World! Dicks\nSreden prust WE\n/QJ MI KURA ANDREW");
 	}
 
 }
