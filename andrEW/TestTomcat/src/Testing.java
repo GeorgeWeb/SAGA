@@ -34,17 +34,13 @@ public class Testing extends HttpServlet {
     	  g.fillRect(50,8*frame-20,20,50);
 	}
     
-    public static int xpos = 500;
-    
-    static void animateString()
-    {
-    	Graphics2D g2;
-    	g2.drawString("ZDR Andrew :)", xpos, 30);
-    	xpos--;
-    	if(xpos < -200)
-    	{
-    		xpos = 500;
-    	}
+    public void drawCar(Graphics2D g, int frameX, int frameY) {    	
+        g.setColor(Color.BLUE);
+        g.fillRect(frameX, frameY, 100, 30);
+        g.setColor(Color.BLACK); // body
+        g.fillOval(frameX + 15, frameY + 20, 15, 15); // wheel
+        g.fillOval(frameX + 60, frameY + 20, 15, 15); // wheel
+        g.fillRect(frameX + 15, frameY - 20, 60, 20); // top
     }
     
 	/**
@@ -64,15 +60,16 @@ public class Testing extends HttpServlet {
             
     		for (int i=0;i<20;i++)
             {
-            	BufferedImage image = new BufferedImage(150,100, BufferedImage.TYPE_INT_ARGB);
-            	BufferedImage image2 = new BufferedImage(650,100, BufferedImage.TYPE_INT_ARGB);
-            	Graphics2D g = image.createGraphics();
-            	drawFrame(g,i);
-            	animateString();
-            	e.addFrame(image);
-            	e.addFrame(image2);
-            	//e.addFrame(image2); 
-            	g.dispose();
+    			for(int j=0;j<20;j++)
+    			{
+    				BufferedImage image = new BufferedImage(600,300, BufferedImage.TYPE_INT_ARGB);
+                	Graphics2D g = image.createGraphics();
+                	//drawFrame(g,i);
+                	drawCar(g, i, j);
+                	e.addFrame(image);
+                	//e.addFrame(image2); 
+                	g.dispose();
+    			}
             }
             
             e.finish();
