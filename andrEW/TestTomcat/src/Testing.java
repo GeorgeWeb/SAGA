@@ -88,24 +88,14 @@ public class Testing extends HttpServlet
         g.fillRect(310, 130, 140, 110);
     }
     
-    public void drawTree(Graphics2D g)
+    public void drawTree(Graphics2D g, int topXOffset, int bodyXOffset)
     {
     	// tree top
         g.setColor(new Color(0, 153, 76));
-        g.fillRect(185, 160, 40, 40);
+        g.fillRect(topXOffset + 100, 160, 40, 40);
         // tree body
         g.setColor(new Color(139, 69, 19));
-        g.fillRect(200, 200, 10, 40);
-    }
-    
-    public void drawTree2(Graphics2D g)
-    {
-    	// tree top
-        g.setColor(new Color(0, 153, 76));
-        g.fillRect(185 + 100, 160, 40, 40);
-        // tree body
-        g.setColor(new Color(139, 69, 19));
-        g.fillRect(200, 200, 10, 40);
+        g.fillRect(bodyXOffset, 200, 10, 40);
     }
     
     public void drawBackground(Graphics2D g)
@@ -134,6 +124,17 @@ public class Testing extends HttpServlet
         g.setColor(Color.BLACK); // wheels
         g.fillRect(frame + 55 - carXOffset * 7, carYOffset + 17, 15, 15);
         g.fillRect(frame + 100 - carXOffset * 7, carYOffset + 17, 15, 15);
+    }
+    
+    public void drawCar3(Graphics2D g, int frame) 
+    {
+        g.setColor(Color.BLUE); // main body
+        g.fillRect(frame + 40 - carXOffset * 10, carYOffset, 90, 25);
+        g.setColor(Color.BLACK); // top body
+        g.fillRect(frame + 60 - carXOffset * 10, carYOffset - 20, 50, 20);
+        g.setColor(Color.BLACK); // wheels
+        g.fillRect(frame + 55 - carXOffset * 10, carYOffset + 17, 15, 15);
+        g.fillRect(frame + 100 - carXOffset * 10, carYOffset + 17, 15, 15);
     }
     
 	/**
@@ -165,14 +166,16 @@ public class Testing extends HttpServlet
             	drawBlockType2(g);
             	drawBlockType3(g);
             	
-            	drawTree(g);
-            	drawTree2(g);
+            	drawTree(g, -5, 100);
+            	drawTree(g, 85, 200);
+            	drawTree(g, 185, 300);
             	
             	g.translate(i*3, 0);
             	drawCar1(g, i);            	
             	g.translate(i*10, 0);
             	drawCar2(g, i);
-            	
+            	g.translate(i*5, 0);
+            	drawCar3(g, i);
             	e.addFrame(image);
 
             	g.dispose();
