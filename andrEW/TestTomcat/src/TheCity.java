@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Testing
  */
-@WebServlet("/Testing")
-public class Testing extends HttpServlet 
+@WebServlet("/TheCity")
+public class TheCity extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Testing() {
+    public TheCity() {
         super();
         // TODO Auto-generated constructor stub
     }
