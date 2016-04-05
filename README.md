@@ -1,1 +1,3 @@
-# Animated GIFs coded in Java (servlets)
+# Animated GIFs
+- Language: Java
+- App Type: Servlet
