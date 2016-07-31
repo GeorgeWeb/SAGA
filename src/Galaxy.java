@@ -123,6 +123,7 @@ public class Galaxy extends HttpServlet {
     	g.setColor(new Color(66,102,255));
     	g.fillOval(1170, 260, 95, 95);
     }
+    
     public void drawStar(Graphics2D g, int frame, int amount, float size, Color color)
     {
     	setAntialising(g);
@@ -135,7 +136,8 @@ public class Galaxy extends HttpServlet {
 			new int[]{ -100, -31, -31, 12, 81, 38, 81, 12, -31, -31}
 			,10
 		);
-		for(int a = 0; a < amount + 1; a++)
+		
+		for(int a = 0; a < amount; a++)
 		{
 			g.translate(100, 20);
 			g.setColor(color);
@@ -191,13 +193,13 @@ public class Galaxy extends HttpServlet {
         			out.println("<form>");
 
         			out.println("<strong>Stars color:</strong><br>");
-        			out.println("White: <input type='radio' name='color' value='99CCFF' /> | ");
-        			out.println("Yellow: <input type='radio' name='color' value='000033' /> | ");
-        			out.println("Red: <input type='radio' name='color' value='000033' /> | ");
-        			out.println("Blue(*new): <input type='radio' name='color' value='000033' /><br/><br/>");
+        			out.println("White: <input type='radio' name='color' value='FFFFFF' /> | ");
+        			out.println("Yellow: <input type='radio' name='color' value='FFFF00' /> | ");
+        			out.println("Red: <input type='radio' name='color' value='FF0000' /> | ");
+        			out.println("Blue(*new): <input type='radio' name='color' value='00688B' /><br/><br/>");
         			
         			out.println("<strong>Stars size:</strong> <br>");
-        			out.println("Tiny(*new): <input type='radio' name='size' value='50' /> | ");
+        			out.println("Tiny(*new): <input type='radio' name='size' value='250' /> | ");
         			out.println("Small: <input type='radio' name='size' value='200' /> | ");
         			out.println("Medium: <input type='radio' name='size' value='150' /> | ");
         			out.println("Large: <input type='radio' name='size' value='100' /><br/><br/>");
@@ -232,6 +234,7 @@ public class Galaxy extends HttpServlet {
 		            	drawSaturn(g);
 		            	drawUranus(g);
 		            	drawNeptune(g);
+		            	
 		            	int amount = Integer.parseInt(req.getParameter("amount"));
 		            	float size = Float.parseFloat(req.getParameter("size"));
 		            	Color color = new Color(Integer.parseInt(req.getParameter("color"), 16));
